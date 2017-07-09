@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject bullet;
     public Transform bulletSpawn;
     public float distance = 5000f;
-    public float speed = 5000f;
+    public float speed = 150f;
     // public Camera cam;
     // public Rigidbody rb;
     // public float speed;

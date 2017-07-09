@@ -9,6 +9,7 @@ public class GunShot : MonoBehaviour {
 
         GameObject shot = Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
         shot.GetComponent<BulletMover>().speed = 240.0f;
+        shot.GetComponent<BulletMover>().destiny = transform.forward;
     }
 
     public void Fire3d(GameObject bullet, Transform bulletSpawn, RaycastHit hit, float speed) {

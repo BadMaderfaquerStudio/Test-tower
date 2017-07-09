@@ -16,15 +16,13 @@ public class DestroyByContact : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
 
-        if (other.tag == "Boundary") {
-            return;
-        }
-
         //Instantiate(explosion, transform.position, transform.rotation);
         if (other.tag == "Player") {
             //Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
             // gameController.GameOver();
+        } else if(other.CompareTag("Enemy")) {
+            Destroy(other.gameObject);
         }
 
         Destroy(gameObject);
