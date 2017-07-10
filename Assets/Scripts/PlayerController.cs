@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
                 //log hit area to the console
                 // Debug.Log(hit.point);
 
-                gun.Fire3d(bullet, bulletSpawn, hit, speed);
+                gun.Fire3d(bullet, bulletSpawn, hit.point, speed);
 
             }
             

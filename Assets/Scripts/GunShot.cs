@@ -12,13 +12,12 @@ public class GunShot : MonoBehaviour {
         shot.GetComponent<BulletMover>().destiny = transform.forward;
     }
 
-    public void Fire3d(GameObject bullet, Transform bulletSpawn, RaycastHit hit, float speed) {
+    public void Fire3d(GameObject bullet, Transform bulletSpawn, Vector3 target, float speed) {
 
         Vector3 spawn = new Vector3(bulletSpawn.position.x, bulletSpawn.position.y, bulletSpawn.position.z);
-        float distance = Vector3.Distance(spawn, hit.point);
+        float distance = Vector3.Distance(spawn, target);
 
-        //Vector3 direction = hit.point - spawn / distance;
-        Vector3 direction = hit.point - spawn;
+        Vector3 direction = target - spawn;
         direction = direction / distance;
 
         GameObject shot = Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
