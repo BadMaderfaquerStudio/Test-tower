@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour {
     // public float speed;
 
     private GunShot gun;
+	private PlayerMover mover;
 
     // Use this for initialization
     void Start () {
         gun = bulletSpawn.GetComponent<GunShot>();
         // rb = GetComponent<Rigidbody>();
+		mover = gameObject.GetComponent<PlayerMover>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,10 @@ public class PlayerController : MonoBehaviour {
             }
             
         }
+
+		if(Input.GetButtonDown("Fire1")){
+			mover.move ("clockwise");
+		}
     }
 
 }

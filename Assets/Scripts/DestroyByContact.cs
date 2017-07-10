@@ -14,17 +14,23 @@ public class DestroyByContact : MonoBehaviour {
         // gameController = gameControllerObject.GetComponent<GameController>();
     }
 
+	void OnTriggerExit (Collider other) {
+		if (other.tag == "Boundary") Destroy (gameObject);
+	}
+
     void OnTriggerEnter(Collider other) {
 
-        //Instantiate(explosion, transform.position, transform.rotation);
-        if (other.tag == "Player") {
-            //Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            Destroy(other.gameObject);
-            // gameController.GameOver();
-        } else if(other.CompareTag("Enemy")) {
-            Destroy(other.gameObject);
-        }
+		if (other.tag != "Boundary") {
+			//Instantiate(explosion, transform.position, transform.rotation);
+			if (other.tag == "Player") {
+				//Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+				Destroy (other.gameObject);
+				// gameController.GameOver();
+			} else if (other.CompareTag ("Enemy")) {
+				Destroy (other.gameObject);
+			}
 
-        Destroy(gameObject);
+			Destroy (gameObject);
+		}
     }
 }
